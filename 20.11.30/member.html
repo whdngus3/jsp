@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="common.css">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	function word() {
+		if (frm.pass.value != frm.pass2.value) {
+			alert("비밀번호가 다릅니다");
+			frm.pass.focus
+			frm.pass.value="";
+			frm.pass2.value="";
+			return false
+		}
+		if(frm.job.value=="직접입력"){
+			if(!frm.job2.value){
+				alert("직업을 입력하시오")
+				frm.job2.focus();
+				return false;
+			} else{
+				frm.job.value=frm.job2.value;
+			}
+		}
+	}
+</script>
+</head>
+
+
+<body>
+<h2>회원등록</h2>
+<form action="Member" onsubmit="return word()" name="frm" method="post">
+	<table>
+		<tr>
+			<td>이름</td>
+			<td><input type="text" name="name" required="required"></td>
+		</tr>
+		<tr>
+			<td>아이디</td>
+			<td><input type="text" name="id" required="required"></td>
+		</tr>
+		<tr>
+			<td>암호</td>
+			<td><input type="password" name="pass" required="required"></td>
+		</tr>
+		<tr>
+			<td>암호확인</td>
+			<td><input type="password" name="pass2" required="required"></td>
+		</tr>
+		<tr>
+			<td>전화번호</td>
+			<td><input type="text" name="tel1" required="required"
+			pattern = "\d{3}-\d{3,4}-\d{4}"></td>
+		</tr>
+		<tr>
+			<td>성별</td>
+			<td>
+				<label><input type="radio" name="sex" value="men"> Men</label>
+    			<label><input type="radio" name="sex" value="women"> Women</label>
+			</td>
+		</tr>
+		<tr>
+			<td>메일 수신 여부</td>
+			<td>
+				<label><input type="checkbox" name="mail" value="gong"> 공지</label>
+				<label><input type="checkbox" name="mail" value="gwang"> 광고</label>
+				<label><input type="checkbox" name="mail" value="bae"> 배송</label>
+				
+			</td>
+		</tr>
+		<tr>
+			<td>직업</td>
+			<td>
+				<select name="job">
+				<option>개발자<option>수도승<option>가수<option>작가<option>기타<option>직접입력
+			</select>
+				<input type ="text" name="job2">
+			</td>
+		</tr>
+		<tr>
+		<td colspan="2"><input type="submit" values="회원가입"></td>
+		</tr>
+		
+	</table>
+
+
+</form>	
+</body>
+</html>

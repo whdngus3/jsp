@@ -1,0 +1,51 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">@import url("common.css");</style>
+<script type="text/javascript">
+	function chk() {
+		if (frm.pass.value != frm.passConfirm.value) {
+			alert("암호와 암호 확인이 다릅니다");	frm.pass.focus();
+			frm.pass.value="";		return false;		}
+		if (frm.job.value=="직접입력") {
+			if (!frm.job2.value) {
+				alert("직업을 입력하세여");
+				frm.job2.focus();
+				return false;
+			} else frm.job3.value= frm.job2.value;
+		}else frm.job3.value = frm.job.value;
+	}
+</script></head><body><h2>회원 등록</h2>
+<form action="Member" name="frm" onsubmit="return chk()" 
+	method="post">
+	<input type="hidden" name="job3">
+<table>
+	<tr><th>이름</th><td><input type="text" name="name" 
+		required="required" autofocus="autofocus"></td></tr>
+	<tr><th>아이디</th><td><input type="text" name="id" 
+		required="required"></td></tr>
+	<tr><th>암호</th><td><input type="password" name="pass" 
+		required="required"></td></tr>
+	<tr><th>암호확인</th><td><input type="password" 
+		name="passConfirm" required="required"></td></tr>
+	<tr><th>전화</th><td><input type="tel" required="required"
+		placeholder="010-1111-1234" pattern="\d{3}-\d{3,4}-\d{4}"
+		title="전화는 010-1111-1234형식이야" name="tel"></td></tr>
+	<tr><th>성별</th><td><label for="g1">남자</label><input type="radio"
+			name="gender" id="g1" checked="checked" value="남자">
+		<label for="g2">여자</label><input type="radio" 
+		name="gender" value="여자"></td></tr>
+	<tr><th>메일수신</th><td><label for="e1">공지</label>
+		<input type="checkbox" name="email" id="e1" value="공지">
+		<label for="e2">광고</label>
+		<input type="checkbox" name="email" id="e2" value="광고">
+		<label for="e3">배송</label>
+		<input type="checkbox" name="email" id="e3" value="배송">
+	</td></tr>
+	<tr><th>직업</th><td><select name="job">
+		<option>개발자<option>수도승<option>가수
+		<option>작가<option>기타<option>직접입력
+	</select><br>
+		<input type="text" name="job2"></td></tr>
+	<tr><th colspan="2"><input type="submit"></th></tr>
+</table></form>
+</body></html>

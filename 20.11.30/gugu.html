@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="common.css">
+<script type="text/javascript">
+	function chk() {
+		if (!frm.num1.value) {
+			alert("첫번째 숫자를 입력하세요");
+			frm.num1.focus();  // 커서를 num1에 놔라
+			return false;  // servlet Cal을 실행하지 마라
+		}
+		if (isNaN(frm.num1.value)) { // isNaN : is not a number
+			alert("그게 숫자냐 ! 으이그");
+			frm.num1.focus();  
+			frm.num1.value=""; // num1입력한 글자를 삭제한다
+			return false; 
+		}
+	}
+</script></head><body><h2>구구단</h2>
+<form action="Gugu" onsubmit="return chk()" name="frm">
+<table>
+	<tr>
+			<legend>번호 선택</legend>
+			<select name="num1">
+				<option>2<option>3<option>4<option>5<option>6<option>7<option>8<option>9
+			</select><p>
+	
+	</tr>
+	<tr><th colspan="2"><input type="submit" value="확인"></th></tr>
+</table></form>
+</body>
+</html>
